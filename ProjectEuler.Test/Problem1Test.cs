@@ -11,7 +11,7 @@ namespace ProjectEuler.Test {
             var problem = new Problem1();
 
             // Act
-            var result = problem.Run(10);
+            var result = problem.SumRangeDivisibleByThreeOrFive(10);
 
             // Assert
             Assert.AreEqual(23, result);
