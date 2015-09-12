@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Diagnostics;
+using System.Linq;
 using ProjectEuler.Lib;
 
 namespace ProjectEuler.Console {
@@ -15,7 +16,7 @@ namespace ProjectEuler.Console {
 
         private void Run() {
             Compose();
-            foreach (var problem in _problems) {
+            foreach (var problem in _problems.OrderBy(x => x.Name)) {
                 System.Console.WriteLine("{0}: {1}", problem.Name, problem.Answer);
             }
             if (Debugger.IsAttached) {
