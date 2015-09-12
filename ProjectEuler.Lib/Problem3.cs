@@ -15,7 +15,7 @@ namespace ProjectEuler.Lib {
         }
 
         public ulong LargestPrimeFactor(ulong number) {
-            return PrimeFactors(number).OrderByDescending(x => x).First();
+            return PrimeFactors(number).Max();
         }
 
         private static IEnumerable<ulong> PrimeFactors(ulong number) {

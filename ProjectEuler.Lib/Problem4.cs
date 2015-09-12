@@ -16,9 +16,9 @@ namespace ProjectEuler.Lib {
         }
 
         public int LargestPalinedromeFromTwoNumbers(int digits) {
-            return Enumerable.Range(1, (int)Math.Pow(10, digits)).ToList().SelectMany(x => {
+            return Enumerable.Range(1, (int)Math.Pow(10, digits)).SelectMany(x => {
                 return Enumerable.Range(1, x).Select(y => x*y).Where(IsPalindrome);
-            }).OrderByDescending(x => x).First();
+            }).Max();
         }
 
         private bool IsPalindrome(int arg) {
