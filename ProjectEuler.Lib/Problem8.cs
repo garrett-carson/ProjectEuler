@@ -30,7 +30,6 @@ namespace ProjectEuler.Lib {
     //  
     // Find the thirteen adjacent digits in the 1000-digit number that have the greatest product.What is the value of this product?
     [Export(typeof(Problem))]
-    [Export(typeof(Problem8))]
     public class Problem8 : Problem {
 
         [Import(typeof(Problem8Input))]

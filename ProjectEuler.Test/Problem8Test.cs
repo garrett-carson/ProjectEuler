@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectEuler.Lib;
@@ -14,7 +15,7 @@ namespace ProjectEuler.Test {
         public void Compose() {
             var catalog = new AssemblyCatalog(Assembly.GetAssembly(typeof(Problem8)));
             var container = new CompositionContainer(catalog);
-            _problem = container.GetExportedValue<Problem8>();
+            _problem = container.GetExports<Problem>().Select(x => x.Value as Problem8).Single(x => x != null);
         }
 
         [TestMethod]
