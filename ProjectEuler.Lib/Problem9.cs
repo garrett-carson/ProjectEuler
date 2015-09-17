@@ -26,12 +26,12 @@ namespace ProjectEuler.Lib {
 
         private IEnumerable<Tuple<int, int, int>> PythagoreanTriples() {
             var c = 1;
-            while (true) {
+            while (c > 0) {
                 var b = 1;
                 do {
                     var a = 1;
                     do {
-                        if ((int)Math.Pow(a, 2) + (int)Math.Pow(b, 2) == (int)Math.Pow(c, 2)) {
+                        if (_square(a) + _square(b) == _square(c)) {
                             yield return new Tuple<int, int, int>(a, b, c);
                         }
                         a++;
@@ -40,6 +40,18 @@ namespace ProjectEuler.Lib {
                 } while (b <= c);
                 c++;
             }
+        }
+
+        private readonly Func<int, int> _square = Memoize<int, int>(x => (int)Math.Pow(x, 2));
+        
+        public static Func<TSource, TReturn> Memoize<TSource, TReturn>(Func<TSource, TReturn> func) {
+            var cache = new Dictionary<TSource, TReturn>();
+            return s => {
+                if (!cache.ContainsKey(s)) {
+                    cache[s] = func(s);
+                }
+                return cache[s];
+            };
         }
     }
 }
