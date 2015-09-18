@@ -12,7 +12,7 @@ namespace ProjectEuler.Lib {
         }
 
         public int SumRangeDivisibleByThreeOrFive(int max) {
-            return Enumerable.Range(0, max).Where(x => x % 3 == 0 || x % 5 == 0).Sum();
+            return Enumerable.Range(1, max - 1).Where(x => x % 3 == 0 || x % 5 == 0).Sum();
         }
     }
 }

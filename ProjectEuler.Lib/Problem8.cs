@@ -31,9 +31,12 @@ namespace ProjectEuler.Lib {
     // Find the thirteen adjacent digits in the 1000-digit number that have the greatest product.What is the value of this product?
     [Export(typeof(Problem))]
     public class Problem8 : Problem {
+        private readonly ProblemInput _input;
 
-        [Import(typeof(Problem8Input))]
-        private ProblemInput _input;
+        [ImportingConstructor]
+        public Problem8([Import(typeof(Problem8Input))] ProblemInput input) : base() {
+            _input = input;
+        }
 
         public override string Run() {
             return LargestProductInRangeOf(13).ToString();

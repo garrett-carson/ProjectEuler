@@ -9,19 +9,14 @@ using ProjectEuler.Lib;
 namespace ProjectEuler.Test {
     [TestClass]
     public class Problem8Test {
-        private Problem8 _problem;
-
-        [TestInitialize]
-        public void Compose() {
-            var catalog = new AssemblyCatalog(Assembly.GetAssembly(typeof(Problem8)));
-            var container = new CompositionContainer(catalog);
-            _problem = container.GetExports<Problem>().Select(x => x.Value as Problem8).Single(x => x != null);
-        }
 
         [TestMethod]
         public void Problem8Example() {
+            // Arrange
+            var problem = new Problem8(new Problem8Input());
+
             // Act
-            var result = _problem.LargestProductInRangeOf(4);
+            var result = problem.LargestProductInRangeOf(4);
 
             // Assert
             Assert.AreEqual(5832UL, result);
@@ -29,8 +24,11 @@ namespace ProjectEuler.Test {
 
         [TestMethod]
         public void Problem8Answer() {
+            // Arrange
+            var problem = new Problem8(new Problem8Input());
+
             // Act
-            var result = _problem.Answer;
+            var result = problem.Answer;
 
             // Assert
             Assert.AreEqual("23514624000", result);
