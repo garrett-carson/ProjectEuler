@@ -19,7 +19,7 @@ namespace ProjectEuler.Console {
 
         private void Run() {
             Compose();
-            foreach (var problem in _problems.OrderBy(x => x.Name, new NaturalStringComparer())) {
+            foreach (var problem in _problems.OrderByDescending(x => x.Name, new NaturalStringComparer())) {
                 System.Console.WriteLine("{0}: {1}", problem.Name, problem.Answer);
             }
             if (Debugger.IsAttached) {
