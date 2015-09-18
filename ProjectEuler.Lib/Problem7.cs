@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using ProjectEuler.Lib.Helpers;
 
 namespace ProjectEuler.Lib {
 
@@ -15,33 +16,7 @@ namespace ProjectEuler.Lib {
         }
 
         public ulong NthUlongPrime(int index) {
-            return UlongPrimes().ElementAt(index - 1);
-        }
-
-        private static IEnumerable<ulong> UlongPrimes() {
-            var memoized = new List<ulong>();
-            var primes = PotentialUlongPrimes()
-                .Where(x => {
-                    double sqrt = Math.Sqrt(x);
-                    return memoized
-                        .TakeWhile(y => y <= sqrt)
-                        .All(y => x % y != 0);
-                });
-            foreach (var prime in primes) {
-                yield return prime;
-                memoized.Add(prime);
-            }
-        }
-
-        private static IEnumerable<ulong> PotentialUlongPrimes() {
-            yield return 2;
-            yield return 3;
-            ulong k = 1;
-            while (k > 0) {
-                yield return 6 * k - 1;
-                yield return 6 * k + 1;
-                k++;
-            }
+            return PrimeNumbers.UlongPrimes().ElementAt(index - 1);
         }
     }
 }
