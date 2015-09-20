@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\PrimeFactors.cs" />
     <Compile Include="Helpers\PrimeNumbers.cs" />
+    <Compile Include="Problem12.cs" />
     <Compile Include="Problem11.cs" />
     <Compile Include="Problem10.cs" />
     <Compile Include="Problem11Input.cs" />

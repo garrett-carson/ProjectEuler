@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using ProjectEuler.Lib.Helpers;
 
 namespace ProjectEuler.Lib {
 
@@ -14,20 +15,7 @@ namespace ProjectEuler.Lib {
         }
 
         public ulong LargestPrimeFactor(ulong number) {
-            return PrimeFactors(number).Max();
-        }
-
-        private static IEnumerable<ulong> PrimeFactors(ulong number) {
-            ulong a, b;
-            a = number;
-            for (b = 2; a > 1; b++) {
-                if (a % b == 0) {
-                    while (a % b == 0) {
-                        a /= b;
-                    }
-                    yield return b;
-                }
-            }
+            return PrimeFactors.FactorsOf(number).Max();
         }
     }
 }
