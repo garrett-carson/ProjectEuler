@@ -46,9 +46,11 @@
     <Compile Include="Helpers\PrimeFactors.cs" />
     <Compile Include="Helpers\PrimeNumbers.cs" />
     <Compile Include="Problem12.cs" />
+    <Compile Include="Problem13.cs" />
     <Compile Include="Problem11.cs" />
     <Compile Include="Problem10.cs" />
     <Compile Include="Problem11Input.cs" />
+    <Compile Include="Problem13Input.cs" />
     <Compile Include="Problem9.cs" />
     <Compile Include="Problem8Input.cs" />
     <Compile Include="ProblemInput.cs" />
